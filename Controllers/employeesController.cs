@@ -32,8 +32,8 @@ namespace SampleMvc.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EmployeeId,EmployeeName,Password,Gender,DateOfBirth,DateOfJoining,PhoneNo")] employee employee)
         {
             if (ModelState.IsValid)
