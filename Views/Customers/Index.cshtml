@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SampleMvc.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-primary btn-sm" href="@Url.Action("Create")">Add New </a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerPhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerPhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerAddress)
+        </td>
+        <td>
+            <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", item)">Edit</a>
+            <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", item)">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

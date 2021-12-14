@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SampleMvc.Models.Driver>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-primary btn-sm" href="@Url.Action("Create")">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfJoining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverPhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverAddress)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    
+    <td>
+        @Html.DisplayFor(modelItem => item.DriverName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfBirth)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfJoining)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DriverPhoneNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DriverAddress)
+    </td>
+    <td>
+        <a class="btn btn-primary btn-sm" style="margin-right:5px" href="@Url.Action("Edit",item )">Edit</a>
+        <a class="btn btn-danger btn-sm" style="margin-right:5px" href="@Url.Action("Delete",item )">Delete</a>
+
+    </td>
+</tr>
+}
+
+</table>
